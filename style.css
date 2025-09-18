@@ -445,6 +445,27 @@ footer p {
         font-size: 2rem;
     }
     
+    /* Mobile-specific heading styles for contact page */
+    .header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        max-width: calc(100% - 70px); /* Account for toggle button */
+        margin-left: 10px; /* Add some space from toggle button */
+    }
+    
+    /* Break "Contact Information" into two lines on mobile */
+    .header h1.mobile-break {
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+    
+    /* Force line break after "Contact" on mobile only */
+    .header h1.mobile-break .mobile-break-word::before {
+        content: "\A";
+        white-space: pre;
+    }
+    
     h2 {
         font-size: 1.5rem;
     }
@@ -484,12 +505,27 @@ footer p {
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    
+    /* Further adjustments for very small screens */
+    .header h1 {
+        font-size: 1.6rem;
+        max-width: calc(100% - 60px);
+        margin-left: 5px;
     }
     
     .header img {
         width: 100px;
         height: 100px;
+    }
+    
+    /* Ensure theme toggle button doesn't interfere */
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        top: 0.5rem;
+        right: 0.5rem;
     }
 }
 
