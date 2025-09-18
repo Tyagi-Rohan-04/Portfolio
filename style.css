@@ -5,45 +5,117 @@
     box-sizing: border-box;
 }
 
+/* CSS Variables for Theme Switching */
+:root {
+    /* Light theme (default) */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8f9fa;
+    --bg-navbar: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --bg-header: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-footer: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --bg-section: #f8f9fa;
+    --bg-contact: #ffffff;
+    --bg-navigation: #ecf0f1;
+    
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-heading: #2c3e50;
+    --text-heading-secondary: #34495e;
+    --text-white: white;
+    --text-muted: #7f8c8d;
+    --text-footer: #86a2b8;
+    
+    --accent-primary: #3498db;
+    --accent-secondary: #2980b9;
+    --accent-bullet: #3498db;
+    --accent-link: #3498db;
+    --accent-link-hover: #2980b9;
+    --accent-work: #e74c3c;
+    
+    --border-color: transparent;
+    --border-navigation: #bdc3c7;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --bg-navbar: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --bg-header: linear-gradient(135deg, #424242 0%, #616161 100%);
+    --bg-footer: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --bg-section: #3a3a3a;
+    --bg-contact: #404040;
+    --bg-navigation: #3a3a3a;
+    
+    --text-primary: #e8e8e8;
+    --text-secondary: #e0e0e0;
+    --text-heading: #ffffff;
+    --text-heading-secondary: #f0f0f0;
+    --text-white: white;
+    --text-muted: #b0b0b0;
+    --text-footer: #b0b0b0;
+    
+    --accent-primary: #64b5f6;
+    --accent-secondary: #90caf9;
+    --accent-bullet: #64b5f6;
+    --accent-link: #81c784;
+    --accent-link-hover: #a5d6a7;
+    --accent-work: #ffab91;
+    
+    --border-color: #404040;
+    --border-navigation: #757575;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Typography */
 h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--text-heading);
     margin-bottom: 1rem;
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #34495e;
+    color: var(--text-heading-secondary);
     margin-bottom: 1rem;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid var(--accent-primary);
     padding-bottom: 0.5rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 h3 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-heading);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 p {
     margin-bottom: 1rem;
     font-size: 1rem;
-    color: #555;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
 /* Container and Layout */
@@ -51,21 +123,24 @@ p {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-secondary);
+    box-shadow: 0 0 20px var(--shadow);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     flex: 1;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Navigation Bar */
 .navbar {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: var(--bg-navbar);
     padding: 1rem 0;
     margin-bottom: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar ul {
@@ -109,8 +184,8 @@ p {
 }
 
 .navbar a.active {
-    background: #3498db;
-    border-color: #3498db;
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
 }
 
 /* Header Section */
@@ -121,13 +196,53 @@ p {
     justify-content: center;
     text-align: center;
     padding: 2rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--bg-header);
     color: white;
     border-radius: 10px;
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
     animation: slideInFromLeft 0.8s ease-out;
+    transition: background 0.3s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(180deg);
 }
 
 .header::before {
@@ -164,15 +279,16 @@ p {
 .section {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-section);
     border-radius: 8px;
-    border-left: 4px solid #3498db;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--accent-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .section:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow-hover);
 }
 
 /* Lists */
@@ -189,10 +305,11 @@ li {
 
 li::before {
     content: '▶';
-    color: #3498db;
+    color: var(--accent-bullet);
     font-weight: bold;
     position: absolute;
     left: 0;
+    transition: color 0.3s ease;
 }
 
 /* Work Experience specific styling */
@@ -207,19 +324,20 @@ li::before {
 
 .section ul li ul li::before {
     content: '•';
-    color: #7f8c8d;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
 }
 
 /* Links */
 a {
-    color: #3498db;
+    color: var(--accent-link);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #2980b9;
+    color: var(--accent-link-hover);
     text-decoration: underline;
 }
 
@@ -233,46 +351,52 @@ a:hover {
 }
 
 .contact-item {
-    background-color: #ffffff;
+    background-color: var(--bg-contact);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     flex: 1;
     min-width: 250px;
     max-width: 300px;
+    border: 1px solid var(--border-color);
 }
 
 .contact-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px var(--shadow-hover);
 }
 
 .contact-item h3 {
-    color: #2c3e50;
+    color: var(--text-heading);
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }
 
 .contact-item p {
-    color: #7f8c8d;
+    color: var(--text-muted);
     font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 /* Navigation */
 .navigation {
     margin-top: 2rem;
     padding: 1.5rem;
-    background-color: #ecf0f1;
+    background-color: var(--bg-navigation);
     border-radius: 8px;
     text-align: center;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .navigation hr {
     border: none;
     height: 1px;
-    background-color: #bdc3c7;
+    background-color: var(--border-navigation);
     margin: 1rem 0;
+    transition: background-color 0.3s ease;
 }
 
 .navigation p {
@@ -282,25 +406,27 @@ a:hover {
 .navigation a {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #3498db;
+    background-color: var(--accent-primary);
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .navigation a:hover {
-    background-color: #2980b9;
+    background-color: var(--accent-secondary);
     text-decoration: none;
 }
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: #86a2b8;
+    background: var(--bg-footer);
+    color: var(--text-footer);
     text-align: center;
     padding: 1.5rem;
     margin-top: 2rem;
     border-radius: 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 footer p {
@@ -404,18 +530,21 @@ footer p {
 
 /* Skills section specific styling */
 .section ul li strong {
-    color: #2c3e50;
+    color: var(--text-heading);
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 /* Work experience timeline effect */
 .section ul li h3 {
-    color: #e74c3c;
+    color: var(--accent-work);
     font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
 .section ul li p {
-    color: #7f8c8d;
+    color: var(--text-muted);
     font-style: italic;
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
 }

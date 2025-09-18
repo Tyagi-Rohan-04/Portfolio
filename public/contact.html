@@ -9,6 +9,9 @@
 <body>
     <div class="container">
         <div class="header">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
             <h1>Contact Information</h1>
         </div>
         
@@ -71,5 +74,40 @@
     <footer>
         <p>&copy; 2024 Rohan Tyagi. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        function updateIcon() {
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                themeIcon.textContent = '☀️';
+            } else {
+                themeIcon.textContent = '🌙';
+            }
+        }
+        
+        // Initialize icon
+        updateIcon();
+        
+        // Toggle theme function
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon();
+        }
+        
+        // Add click event listener
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
 </body>
 </html>
