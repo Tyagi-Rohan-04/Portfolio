@@ -10,6 +10,9 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Typography */
@@ -46,13 +49,14 @@ p {
 /* Container and Layout */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
     background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* Navigation Bar */
@@ -111,6 +115,10 @@ p {
 
 /* Header Section */
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 2rem 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -119,6 +127,7 @@ p {
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
+    animation: slideInFromLeft 0.8s ease-out;
 }
 
 .header::before {
@@ -144,8 +153,7 @@ p {
     height: 150px;
     border-radius: 50%;
     border: 4px solid white;
-    margin: 1rem auto;
-    display: block;
+    margin: 1rem 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
@@ -217,10 +225,11 @@ a:hover {
 
 /* Contact Page Specific Styles */
 .contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
     margin: 2rem 0;
+    justify-content: center;
 }
 
 .contact-item {
@@ -230,6 +239,9 @@ a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
 }
 
 .contact-item:hover {
@@ -317,7 +329,12 @@ footer p {
     }
     
     .contact-info {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-item {
+        max-width: 100%;
     }
     
     .section {
@@ -359,6 +376,18 @@ footer p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Sliding animation for header */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
