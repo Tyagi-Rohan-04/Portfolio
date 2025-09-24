@@ -123,16 +123,16 @@ p {
 	- Header and Navbar will span all columns (see `.header, .navbar { grid-column: 1 / -1 }`)
 	- Individual sections auto-flow into columns using `repeat(auto-fit, minmax(...))`
 */
-.container {
+	.container {
 	max-width: 1200px;
 	margin: 2rem auto;
 	padding: 2rem;
 	background-color: var(--bg-secondary);
 	box-shadow: 0 0 20px var(--shadow);
 	border-radius: 10px;
-	/* Establish a responsive grid that adapts from 1 to many columns */
+	/* Single-column grid for consistent vertical flow across pages */
 	display: grid; /* Grid is ideal for overall page structure */
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	grid-template-columns: 1fr; /* Force one column layout */
 	grid-auto-rows: auto; /* Let rows size to their content */
 	gap: 2rem; /* Consistent spacing between grid items */
 	transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -299,7 +299,12 @@ p {
 	- These become individual grid items within `.container`
 	- No need for explicit grid rules here; they auto-place within the container grid
 */
-.section {
+
+/*
+	Section cards use Flexbox internally for structured vertical layouts
+	- Keep headings, text, and lists evenly spaced using `gap`
+*/
+	.section {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
     background-color: var(--bg-section);
@@ -307,6 +312,9 @@ p {
     border-left: 4px solid var(--accent-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     border: 1px solid var(--border-color);
+	display: flex; /* Flexbox for internal alignment */
+	flex-direction: column;
+	gap: 1rem; /* Even spacing between child elements */
 }
 
 .section:hover {
@@ -336,9 +344,13 @@ li::before {
 }
 
 /* Work Experience specific styling */
-.section ul li ul {
+	/* Nested lists inside sections: use flex column for tidy bullets */
+	.section ul li ul {
     margin-top: 0.5rem;
-    margin-left: 1rem;
+		margin-left: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
 }
 
 .section ul li ul li {
@@ -369,7 +381,7 @@ a:hover {
 	- Flex layout allows even distribution and wrapping of contact cards
 */
 .contact-info {
-    display: flex;
+	display: flex; /* Flex aligns contact cards and wraps as needed */
     flex-wrap: wrap;
     gap: 1.5rem;
     margin: 2rem 0;
@@ -383,7 +395,7 @@ a:hover {
     box-shadow: 0 2px 10px var(--shadow);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    flex: 1;
+    flex: 1; /* Allow cards to grow equally in a row */
     min-width: 250px;
     max-width: 300px;
     border: 1px solid var(--border-color);
