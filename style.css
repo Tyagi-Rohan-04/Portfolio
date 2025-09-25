@@ -12,7 +12,7 @@
     --bg-secondary: #ffffff;
     --bg-tertiary: #f8f9fa;
     --bg-navbar: var(--bg-footer); /* Match navbar with footer color (light theme) */
-    --bg-header: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-header: linear-gradient(135deg, #000080 20%, #4169e1 50%);
     --bg-footer: #e6cfa0; /* Darker beige footer for stronger contrast */
     --bg-section: #f8f9fa;
     --bg-contact: #ffffff;
@@ -183,7 +183,7 @@ p {
 }
 
 .navbar a {
-    color: black;
+    color: lightblue;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1rem;
@@ -286,7 +286,7 @@ p {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 4px solid bisque;
     margin: 1rem 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
