@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <h1>Projects</h1>
+        </div>
+
+        <!-- Intro section -->
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <p>A curated selection of my recent work. Each project highlights different skills across frontend, backend, and UI/UX.</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Responsive personal portfolio with light/dark theme, CSS Grid layout, and accessible navigation.</p>
+                <ul>
+                    <li>Built with semantic HTML and modern CSS</li>
+                    <li>Accessible components and keyboard-friendly interactions</li>
+                    <li>Responsive across devices</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Task Tracker</h3>
+                <p>Lightweight task manager with filtering and persistence.</p>
+                <ul>
+                    <li>LocalStorage-powered persistence</li>
+                    <li>Filter by status and priority</li>
+                    <li>Clean, minimal UI</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>API Dashboard</h3>
+                <p>Dashboard UI to visualize API metrics and uptime.</p>
+                <ul>
+                    <li>Reusable card components</li>
+                    <li>Flexbox + Grid hybrid layout</li>
+                    <li>Dark-mode first design</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./Projects.html" class="active">Projects</a></li>
+                <li><a href="./hobbies.html">My Hobbies</a></li>
+                <li><a href="./contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Rohan Tyagi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality (kept consistent across pages)
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.querySelector('.theme-icon');
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        function updateIcon() {
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                themeIcon.textContent = '☀️';
+            } else {
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        updateIcon();
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon();
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>

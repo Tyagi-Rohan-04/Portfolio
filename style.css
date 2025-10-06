@@ -30,7 +30,7 @@
     --accent-secondary: #2980b9;
     --accent-bullet: #3498db;
     --accent-link: #3498db;
-    --accent-link-hover: #2980b9;
+    --accent-link-hover: #b9a329;
     --accent-work: #e74c3c;
     
     --border-color: transparent;
@@ -183,26 +183,42 @@ p {
 }
 
 .navbar a {
-    color: lightblue;
+    color: #131936; /* requested light theme navbar text color */
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: #EBD9C6; /* requested light theme unselected background */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #EBD9C6; /* keep same color on hover, emphasize elevation */
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
 }
 
 .navbar a.active {
+    background: #CDD8E1; /* requested light theme active background */
+    border-color: #CDD8E1;
+}
+
+/* Preserve dark theme navbar appearance */
+[data-theme="dark"] .navbar a {
+    color: lightblue;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .navbar a.active {
     background: var(--accent-primary);
     border-color: var(--accent-primary);
 }
