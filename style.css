@@ -11,7 +11,7 @@
     --bg-primary: beige; /* Body background (light theme) */
     --bg-secondary: #ffffff;
     --bg-tertiary: #f8f9fa;
-    --bg-navbar: var(--bg-footer); /* Match navbar with footer color (light theme) */
+    --bg-navbar: linear-gradient(135deg, #000080 2%, #4169e1 20%); /* Blue to match/complement header */
     --bg-header: linear-gradient(135deg, #000080 20%, #4169e1 50%);
     --bg-footer: #e6cfa0; /* Darker beige footer for stronger contrast */
     --bg-section: #f8f9fa;
@@ -44,8 +44,8 @@
     --bg-primary: #1a1a1a;
     --bg-secondary: #2d2d2d;
     --bg-tertiary: #3a3a3a;
-    --bg-navbar: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    --bg-header: linear-gradient(135deg, #424242 0%, #616161 100%);
+    --bg-navbar: linear-gradient(135deg, #424242 0%, #616161 20%);
+    --bg-header: linear-gradient(135deg, #424242 20%, #616161 50%);
     --bg-footer: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     --bg-section: #3a3a3a;
     --bg-contact: #404040;
