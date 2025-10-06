@@ -183,28 +183,29 @@ p {
 }
 
 .navbar a {
-    color: #131936; /* requested light theme navbar text color */
+    color: #131936; /* dark text like in mock */
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     transition: all 0.3s ease;
-    background: #EBD9C6; /* requested light theme unselected background */
+    background: #ffffff; /* white pills for inactive links */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .navbar a:hover {
-    background: #EBD9C6; /* keep same color on hover, emphasize elevation */
+    background: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
 }
 
 .navbar a.active {
-    background: #b9a329; /* requested light theme active background */
-    border-color: #CDD8E1;
+    background: #0C1B5A; /* deep navy like active pill in mock */
+    color: #ffffff;
+    border-color: #0C1B5A;
 }
 
 /* Preserve dark theme navbar appearance */
