@@ -203,7 +203,7 @@ p {
 }
 
 .navbar a.active {
-    background: #CDD8E1; /* requested light theme active background */
+    background: #b9a329; /* requested light theme active background */
     border-color: #CDD8E1;
 }
 
