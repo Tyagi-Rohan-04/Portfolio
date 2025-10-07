@@ -9,7 +9,7 @@
 :root {
     /* Light theme (default) */
     --bg-primary: beige; /* Body background (light theme) */
-    --bg-secondary: #ffffff;
+    --bg-secondary: #EDE4C8;
     --bg-tertiary: #f8f9fa;
     --bg-navbar: linear-gradient(135deg, #000080 2%, #4169e1 20%); /* Blue to match/complement header */
     --bg-header: linear-gradient(135deg, #000080 20%, #4169e1 50%);
