@@ -478,9 +478,15 @@ a:hover {
 /* Projects grid and cards */
 .projects-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 	gap: 1.5rem;
 	margin-top: 0.5rem;
+}
+
+/* Make the entire card clickable and fill its grid area */
+.projects-grid > a {
+	display: block;
+	width: 100%;
 }
 
 .project-card {
@@ -493,6 +499,12 @@ a:hover {
 	transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease;
 	position: relative;
 	overflow: hidden;
+	width: 100%;
+	aspect-ratio: 1 / 1; /* keep square shape responsively */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .project-card:hover {
@@ -528,14 +540,14 @@ a:hover {
 
 @media (max-width: 768px) {
 	.projects-grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		gap: 1rem;
 	}
 }
 
 @media (max-width: 480px) {
 	.projects-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 	}
 }
 
