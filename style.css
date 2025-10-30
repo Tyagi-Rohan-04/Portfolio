@@ -475,6 +475,70 @@ a:hover {
     text-decoration: none;
 }
 
+/* Projects grid and cards */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.project-card {
+	background-color: var(--bg-section);
+	border-radius: 12px;
+	border: 1px solid var(--border-color);
+	box-shadow: 0 6px 18px var(--shadow);
+	padding: 1.25rem;
+	text-align: center;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.project-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 24px var(--shadow-hover);
+}
+
+.project-card h3 {
+	margin-bottom: 0.4rem;
+	color: var(--text-heading);
+}
+
+.project-card p {
+	margin-bottom: 0.6rem;
+	color: var(--text-secondary);
+}
+
+.project-card ul {
+	margin-top: 0.25rem;
+}
+
+/* Subtle decorative highlight for cards */
+.project-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+	opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+	.projects-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
 /* Footer */
 footer {
     background: var(--bg-footer);
